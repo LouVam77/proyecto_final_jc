@@ -1,0 +1,185 @@
+/* styles.css — Cacao Real
+   Este archivo empieza vacío a propósito.
+   Se construye en vivo durante el Bloque 3 y el Bloque 4 de la sesión. */
+
+:root {
+  --color-primario: #C08A3E;
+  --color-secundario: #2B1810;
+  --color-cacao-medio: #6B4226;
+  --color-texto: #3A2718;
+  --color-fondo: #F7F2EA;
+  /* variable: crema cálido para el fondo del body */
+  --fuente-principal: "Inter", sans-serif;
+  /* variable: la tipografía que usa todo el sitio */
+}
+
+/* cierra el bloque de variables */
+
+*,
+*::before,
+*::after {
+  /* selecciona TODOS los elementos de la página */
+  box-sizing: border-box;
+  /* padding y borde quedan DENTRO del ancho declarado */
+  margin: 0;
+  /* quita el margen por defecto del navegador */
+  padding: 0;
+  /* quita el padding por defecto del navegador */
+}
+
+body {
+  /* selecciona la etiqueta <body> */
+  font-family: var(--fuente-principal);
+  /* usa la variable de fuente, no el nombre directo */
+  color: var(--color-texto);
+  /* color de texto para todo lo que no diga otra cosa */
+  background-color: var(--color-fondo);
+  /* fondo crema detrás de toda la página */
+  line-height: 1.6;
+  /* más espacio entre líneas = más fácil de leer */
+}
+
+img {
+  /* selecciona TODAS las imágenes del sitio */
+  display: block;
+  /* quita un espacio fantasma que dejan las img inline */
+  max-width: 100%;
+  /* la imagen nunca se desborda de su contenedor */
+}
+
+a {
+  /* selecciona TODOS los links del sitio */
+  color: inherit;
+  /* el link toma el color de texto de su padre, no azul */
+}
+
+section {
+  /* selecciona TODAS las <section> del HTML */
+  padding: 4rem 1.5rem;
+  /* aire generoso arriba/abajo y a los lados */
+}
+
+section h2 {
+  /* selecciona los <h2> que estén DENTRO de una section */
+  font-size: 2rem;
+  /* tamaño de título de sección */
+  color: var(--color-secundario);
+  /* título en el tono oscuro de marca */
+  margin-bottom: 0.75rem;
+  /* separa el título del texto que sigue */
+  text-align: center;
+  /* centra el título horizontalmente */
+}
+
+header {
+  /* selecciona la etiqueta <header> */
+  background-color: var(--color-secundario);
+  /* fondo oscuro para que el logo resalte */
+  padding: 1rem 2rem;
+  /* aire interno del header */
+  display: flex;
+  /* ACTIVA Flexbox: los hijos se acomodan en fila */
+  justify-content: space-between;
+  /* empuja logo y nav a los extremos opuestos */
+  align-items: center;
+  /* centra verticalmente logo y nav */
+  position: sticky;
+  /* el header se "pega" al hacer scroll... */
+  top: 0;
+  /* ...pegado exactamente al borde superior */
+}
+
+header h1 {
+  /* selecciona el <h1> dentro del header */
+  color: var(--color-primario);
+  /* el nombre del negocio en el color de acento */
+  font-size: 1.5rem;
+  /* tamaño del logo/título */
+  font-weight: 700;
+  /* negrita fuerte para que destaque */
+}
+
+
+nav {
+  /* selecciona la etiqueta <nav> */
+  display: flex;
+  /* los links del menú también van en fila */
+  gap: 1.5rem;
+  /* espacio entre links, sin márgenes manuales */
+}
+
+nav a {
+  /* selecciona los links QUE ESTÁN dentro de nav */
+  color: white;
+  /* links blancos sobre el fondo oscuro del header */
+  text-decoration: none;
+  /* quita el subrayado azul por defecto */
+  transition: color 0.2s ease;
+  /* el cambio de color al hacer hover será suave */
+}
+
+nav a:hover {
+  /* pseudo-selector: SOLO mientras el mouse está encima */
+  color: var(--color-primario);
+  /* el link se pinta del color de acento */
+}
+
+#hero {
+  /* selecciona el elemento con id="hero" */
+  min-height: 70vh;
+  /* ocupa al menos 70% de la altura de pantalla */
+  display: flex;
+  /* Flexbox de nuevo, pero ahora en columna */
+  flex-direction: column;
+  /* apila los hijos uno debajo del otro */
+  justify-content: center;
+  /* centra verticalmente dentro del hero */
+  align-items: center;
+  /* centra horizontalmente dentro del hero */
+  text-align: center;
+  /* el texto adentro también queda centrado */
+  padding: 4rem 1.5rem;
+  /* aire alrededor del contenido */
+  background: linear-gradient(135deg, var(--color-secundario) 0%, #4a2a17 100%);
+  /* degradado diagonal en vez de color plano */
+}
+
+.hero-eyebrow {
+  /* selecciona el textito pequeño arriba del título */
+  color: var(--color-primario);
+  /* en el color de acento para que resalte poco a poco */
+  font-weight: 600;
+  /* semi-negrita */
+  letter-spacing: 0.08em;
+  /* separa un poco las letras, look "etiqueta" */
+  text-transform: uppercase;
+  /* fuerza el texto a mayúsculas */
+  font-size: 0.85rem;
+  /* tamaño pequeño, es un dato secundario */
+  margin-bottom: 1rem;
+  /* separa del título grande */
+}
+
+#hero h2 {
+  /* selecciona el <h2> dentro del hero */
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  /* tamaño elástico: nunca menor a 2rem ni mayor a 3.2rem */
+  color: white;
+  /* texto blanco sobre el degradado oscuro */
+  max-width: 20ch;
+  /* no deja que el título se estire en una sola línea larga */
+  margin-bottom: 1rem;
+  /* separa del párrafo de abajo */
+}
+
+#hero p {
+  /* selecciona el <p> dentro del hero */
+  color: rgba(255, 255, 255, 0.85);
+  /* blanco al 85% de opacidad: menos protagonismo que el título */
+  font-size: 1.05rem;
+  /* un poco más grande que el texto normal */
+  max-width: 480px;
+  /* evita que el párrafo se estire demasiado */
+  margin-bottom: 2rem;
+  /* separa del botón de abajo */
+}
